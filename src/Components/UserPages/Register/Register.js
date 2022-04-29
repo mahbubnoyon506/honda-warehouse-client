@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './Register.css'
-import { Spinner } from 'react-bootstrap';
+import Spiner from '../../Utilities/Spiner/Spiner';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -35,7 +35,7 @@ const Register = () => {
         );
     }
     if (loading) {
-        return <Spinner animation="border" variant="primary" />
+        <Spiner></Spiner>
     }
     if (user || userGoogle) {
         return (

@@ -5,7 +5,7 @@ import './Footer.css'
 const Footer = () => {
     const year = new Date().getFullYear();
     return (
-        <div style={{background: '#252525'}} className='footer'>
+        <div className='footer mt-5'>
             <div className='row g-4 mx-5 py-4'>
                 <div style={{borderLeft: '5px solid #0D6EFD'}} className='col-md-3 px-4'>
                     <h4>Newsletter Signup</h4>

@@ -41,13 +41,13 @@ const Header = () => {
                                 user ? 
                                 <>
                                     <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/myitems'>My Items</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/additem'>Add Item</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/manageitem'>Manage Item</NavLink>  
+                                    <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/additems'>Add Item</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/manageitems'>Manage Item</NavLink>  
                                     <button onClick={logout}>Sign Out</button>                               
                                 </>
 
                                  :
-                                 
+
                                 <>
                                      <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/login'>Login</NavLink>
                                     <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/register'>Register</NavLink>
