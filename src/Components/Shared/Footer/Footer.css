@@ -1,0 +1,12 @@
+.footer h4, .footer h5, .footer p{
+    color: #FFFFFF;
+}
+.footer a{
+   color: #FFFFFF;
+}
+.footer a:hover {
+    color: #2288C3;
+}
+.footer input:focus{
+    outline: none;
+}

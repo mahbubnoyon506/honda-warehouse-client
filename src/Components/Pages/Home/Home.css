@@ -1,0 +1,14 @@
+.homebanner{
+    height: 70vh;
+    background-image: url("https://i.ibb.co/VpB4gqy/mainbanner.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.serch-field input:focus{
+    outline: none;
+}
+.text-div p{
+   font-size: 14px;
+   line-height: 18px;
+}
