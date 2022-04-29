@@ -8,6 +8,8 @@ import Notfound from './Components/Shared/Notfound/Notfound';
 import Inventory from './Components/Pages/Inventory/Inventory';
 import Blog from './Components/Pages/Blogs/Blog';
 import About from './Components/Pages/About/About';
+import Register from './Components/UserPages/Register/Register';
+import Login from './Components/UserPages/Login/Login';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path='/inventory' element={<Inventory></Inventory>}></Route>
           <Route path='/about' element={<About></About>}></Route>
           <Route path='/blogs' element={<Blog></Blog>}></Route>
+          <Route path='/register' element={<Register></Register>}></Route>
+          <Route path='/login' element={<Login></Login>}></Route>
           <Route path='*' element={<Notfound></Notfound>}></Route>
         </Routes>
         <Footer></Footer>

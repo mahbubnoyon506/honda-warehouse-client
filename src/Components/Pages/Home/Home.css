@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  h1, h2, h3, h4, h5, h6, p{margin: 0px !important;}
 .homebanner{
     height: 70vh;
     background-image: url("https://i.ibb.co/VpB4gqy/mainbanner.jpg");
@@ -11,4 +16,11 @@
 .text-div p{
    font-size: 14px;
    line-height: 18px;
+}
+.category-wrap{
+   position: relative !important;
+}
+.category{
+    position: sticky !important;
+    top: 0px !important;
 }

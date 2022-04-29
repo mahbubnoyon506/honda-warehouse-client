@@ -1,0 +1,20 @@
+
+.collapse-wrap a{
+    font-size: 16px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.collapse-wrap button{
+    border: none;
+    background-color: transparent;
+    color:#8CBFE2;
+}
+.collapse-wrap a:hover{
+   color: #fff;
+}
+.active{
+    color: #fff;
+}
+.in-active{
+    color: #8CBFE2;    
+}

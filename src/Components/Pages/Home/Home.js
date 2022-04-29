@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../../Utilities/Banner/Banner';
+import Products from '../../Utilities/Products/Products';
 
 
 
@@ -19,10 +20,10 @@ const Home = () => {
                 <h5 className='text-center'>Honda Auto Parts Warehouse</h5>
                 <p className=' text-center'>Here at Honda Auto Parts Warehouse you can find any part of accessory you need for every Honda model. With full OEM parts catalogs and VIN verification, we make it easy to buy the parts you need and have them delivered to your door at a fraction of the cost when compared to your local parts department. Just <span className='text-primary'>Select your Honda model</span> to get started and if you have any questions you can <span className='text-primary'>Contact us</span> and one of our Honda part experts will be happy to help. Thank you for shopping with us!</p>
             </div>
-            <div className='row m-5'>
-                <div className='col-md-4'>
+            <div className='category-wrap row m-5'>
+                <div className='category col-md-3'>
                     <h2 className='mt-0 pb-3'>Our Parts Category</h2>
-                    <Link className='fw-bold text-decoration-none d-block my-2' to='#'><img className='w-25 me-3' src="https://i.ibb.co/k66h3G7/catg1.jpg" alt="" /> Air Filter</Link>
+                    <Link className='fw-bold text-decoration-none d-block my-2' to='#'><img className='w-50 me-3' src="https://i.ibb.co/k66h3G7/catg1.jpg" alt="" /> Air Filter</Link>
                     <Link className='fw-bold text-decoration-none d-block my-2' to='#'><img className='w-25 me-3' src="https://i.ibb.co/M6mnSMD/catg2.jpg" alt="" /> Alternator</Link>
                     <Link className='fw-bold text-decoration-none d-block my-2' to='#'><img className='w-25 me-3' src="https://i.ibb.co/qYyF4LG/catg7.jpg" alt="" /> Radiators</Link>
                     <Link className='fw-bold text-decoration-none d-block my-2' to='#'><img className='w-25 me-3' src="https://i.ibb.co/Y7Yjs8d/catg8.jpg" alt="" /> Spark Plugs</Link>
@@ -31,7 +32,7 @@ const Home = () => {
                     <Link className='fw-bold text-decoration-none d-block my-2' to='#'><img className='w-25 me-3' src="https://i.ibb.co/C1KCWYG/catg3.jpg" alt="" /> Belts</Link>
                     <Link className='fw-bold text-decoration-none d-block my-2' to='#'><img className='w-25 me-3' src="https://i.ibb.co/rcGhJQL/catg4.jpg" alt="" /> Break Pads</Link>
                 </div>
-                <div className='col-md-8'>
+                <div className='col-md-9'>
                     <Banner></Banner>
                     <div className='my-5'>
                         <h4>Special Categories</h4>
@@ -43,6 +44,7 @@ const Home = () => {
                     </div>
                     <div className='my-5'>
                     <h4>Featured Items</h4>
+                    <Products></Products>
                 </div>
                 </div>
             </div>

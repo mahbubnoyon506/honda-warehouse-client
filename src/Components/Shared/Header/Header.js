@@ -1,8 +1,16 @@
 import React from 'react';
+import './Header.css'
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+    const logout = () => {
+        signOut(auth);
+    };
     return (
         <div>
             <Navbar style={{ height: '30px' }} collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -18,19 +26,33 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <Navbar collapseOnSelect expand="lg" variant="dark" style={{background: '#007CC3'}}>
+            <Navbar collapseOnSelect expand="lg" variant="dark" style={{ background: '#007CC3' }}>
                 <Container>
-                    <Navbar.Brand href="#home"  ><img className='w-75 bg-light'  src="https://i.ibb.co/Ns9p78B/honda.png" alt="" /></Navbar.Brand>
+                    <Navbar.Brand href="#home"  ><img className='w-75 bg-light' src="https://i.ibb.co/Ns9p78B/honda.png" alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
+                    <Navbar.Collapse id="responsive-navbar-nav" className='collapse-wrap'>
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to='/'>Home</Nav.Link>
-                            <Nav.Link as={Link} to='/inventory'>Inventory</Nav.Link>
-                            <Nav.Link as={Link} to='/about'>About</Nav.Link>
-                            <Nav.Link as={Link} to='/about'>Blogs</Nav.Link>
+                            <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/'>Home</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/inventory'>Inventiry</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/blogs'>Blogs</NavLink>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
+                            {
+                                user ? 
+                                <>
+                                    <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/myitems'>My Items</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/additem'>Add Item</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/manageitem'>Manage Item</NavLink>  
+                                    <button onClick={logout}>Sign Out</button>                               
+                                </>
+
+                                 :
+                                 
+                                <>
+                                     <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/login'>Login</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/register'>Register</NavLink>
+                                </>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
