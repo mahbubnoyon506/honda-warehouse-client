@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddItems from './Components/UserPages/AddItems/AddItems';
 import ManageItems from './Components/UserPages/ManageItems/ManageItems';
 import MyItems from './Components/UserPages/MyItems/MyItems';
+import Products from './Components/Utilities/Products/Products';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/inventory' element={
+        <Route path='/inventory/:id' element={
           <RequiredAuth>
             <Inventory></Inventory>
           </RequiredAuth>
@@ -32,6 +33,7 @@ function App() {
         <Route path='/blogs' element={<Blog></Blog>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/products' element={<Products></Products>}></Route>
         <Route path='/additems' element={
           <RequiredAuth>
             <AddItems></AddItems>
