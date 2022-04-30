@@ -17,7 +17,6 @@ const AddItems = () => {
        }
        axios.post('http://localhost:5000/products', item )
        .then(function (response) {
-
        })
        toast('Item Added')
     }

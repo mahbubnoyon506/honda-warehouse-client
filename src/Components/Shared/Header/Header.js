@@ -33,7 +33,7 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav" className='collapse-wrap'>
                         <Nav className="me-auto">
                             <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/'>Home</NavLink>
-                            <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/inventory'>Inventiry</NavLink>
+                            {/* <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/inventory'>Inventiry</NavLink> */}
                             <NavLink className={({ isActive }) => isActive ? "active" : "in-active"} to='/blogs'>Blogs</NavLink>
                         </Nav>
                         <Nav>
