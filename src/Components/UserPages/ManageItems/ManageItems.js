@@ -1,27 +1,25 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table'
-// import {useParams } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import { BsTrashFill } from "react-icons/bs";
 import { toast } from 'react-toastify';
 import useProducts from '../../Utilities/Hook/AllproductHook';
 const ManageItems = () => {
-    // const {id} = useParams()
     const [products, setProducts] = useProducts();
     const handleDelete = id => {
         const url = `http://localhost:5000/products/${id}`
         const agree = window.confirm('Are you sure to remove it?')
-        if(agree){
+        if (agree) {
             fetch(url, {
                 method: 'DELETE'
             })
-            .then(res => res.json())
-            .then(data => {
-               const remaining = products.filter(product => product._id !== id) 
-               setProducts(remaining)
-               toast('Item deleted')
-            })  
+                .then(res => res.json())
+                .then(data => {
+                    const remaining = products.filter(product => product._id !== id)
+                    setProducts(remaining)
+                    toast('Item deleted')
+                })
         }
- 
     }
     return (
         <div className='m-5'>
@@ -59,6 +57,10 @@ const ManageItems = () => {
                     </tr>
                 </tbody>
             </Table> */}
+            <div className='d-flex justify-content-center p-3'>
+                <Link to='/additems'><button className=' border-0 p-3'>Add New Item</button></Link>
+            </div>
+
         </div>
 
     );
