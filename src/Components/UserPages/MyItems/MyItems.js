@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 const MyItems = () => {
     const [items, setItems] = useMyItems();
+
     const handleRemove = id => {
         const url = `http://localhost:5000/items/${id}`;
         const agree = window.confirm('Are you sure to remove it?');
@@ -33,6 +34,7 @@ const MyItems = () => {
                             <h4 className='text-center py-2'>{item.name}</h4>
                             <p className='text-center'>Suppliar: {item.suppliar}</p>
                             <Button className='w-100 my-3' style={{background: '#007CC3'}} onClick={() => handleRemove(item._id)}>Remove <BsTrashFill></BsTrashFill></Button>
+                     
                         </div>
                     )
                 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useProductId from '../../Utilities/Hook/ProductId';
 import { BsSuitHeartFill } from "react-icons/bs";
@@ -6,7 +6,6 @@ import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { async } from '@firebase/util';
 import Title from '../../Utilities/Title/Title';
 
 const Inventory = () => {
@@ -14,8 +13,8 @@ const Inventory = () => {
     const [added, setAdded] = useState(false)
     const { id } = useParams();
     const [product] = useProductId(id);
- 
-    const handleAdded = () =>{
+
+    const handleAdded = () => {
         const likedItem = {
             user: user.email,
             name: product.name,
@@ -26,36 +25,10 @@ const Inventory = () => {
             description: product.description
         }
         axios.post('http://localhost:5000/items', likedItem)
-          .then(function (response) {
-            setAdded(response);
-            toast('Item Added to My Items, To remove go to My Items page.')
-          })
-    }
-
-    const handleIncrease = event => {
-        event.preventDefault();
-        const quantity = event.target.quantity.value;
-        
-        const url = `http://localhost:5000/products/${id}`;
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-               'content-type' : 'application/json' 
-            },
-            body: JSON.stringify(quantity)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log('Success', data);
-            alert('Data update successfullt');
-            event.target.reset()
-        })
-  
-    }
-
-    const handleDecrease = () => {
-         const count = product.quantity;
-
+            .then(function (response) {
+                setAdded(response);
+                toast('Item Added to My Items, To remove go to My Items page.')
+            })
     }
 
     return (
@@ -65,23 +38,25 @@ const Inventory = () => {
             <div className='d-flex justify-content-between my-3'>
                 <h3>{product.name}</h3>
                 <Link to='#' onClick={() => handleAdded(!added)}>
-                {
-                   added ? <BsSuitHeartFill className='fs-1 text-primary'></BsSuitHeartFill> : <BsSuitHeartFill className='fs-1 text-danger'></BsSuitHeartFill>
-                }
+                    {
+                        added ? <BsSuitHeartFill style={{ color: '#007CC3' }} className='fs-1'></BsSuitHeartFill> : <BsSuitHeartFill className='fs-1 text-danger'></BsSuitHeartFill>
+                    }
                 </Link>
             </div>
             <h5>Suppliar: {product.suppliar}</h5>
-            <p>Product Quantity: {product.quantity} Pieces</p>
             <p>Product Price: $ {product.price}</p>
+            <div className='d-md-flex align-items-center'>
+                <p>Product Quantity: {product.quantity} Pieces</p>
+                <button style={{ color: '#007CC3' }}  className='ms-3 w-25 border-0 p-2'>Deliver</button>
+            </div>
             <p>Description: {product.description}</p>
             <div className='my-3'>
-                <button onClick={handleDecrease} className='w-100 border-0 p-2 mb-3'>Deliver</button>
-                <form onSubmit={handleIncrease} className='d-flex justify-content-around align-items-cente'>
-                    <input className='w-50 p-2' type="text" name="quantity" id="" placeholder='Type Quantity'/>
-                    <input className='w-50 border-0 p-2 ms-3' type="submit" value="Update Quantity" />
+                <form className='d-flex justify-content-around align-items-cente'>
+                    <input className='w-50 p-2' type="text" name="quantity" id="" placeholder='Type Quantity' />
+                    <input style={{ background: '#007CC3', color: '#fff' }} className='w-50 border-0 p-2 ms-3' type="submit" value="Update Quantity" />
                 </form>
             </div>
-            <Link to='/manageitems'><button className='w-100 border-0 p-2 mb-3'>Manage Inventory Item</button> </Link>
+            <Link to='/manageitems'><button style={{ background: '#007CC3', color: '#fff' }} className='w-100 border-0 p-2 mb-3'>Manage Inventory Item</button> </Link>
         </div>
     );
 };
