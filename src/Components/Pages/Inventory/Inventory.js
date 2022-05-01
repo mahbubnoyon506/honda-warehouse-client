@@ -12,7 +12,8 @@ const Inventory = () => {
     const [user] = useAuthState(auth);
     const [added, setAdded] = useState(false)
     const { id } = useParams();
-    const [product] = useProductId(id);
+    const [product, setProduct] = useProductId(id);
+
 
     const handleAdded = () => {
         const likedItem = {
@@ -28,6 +29,50 @@ const Inventory = () => {
             .then(function (response) {
                 setAdded(response);
                 toast('Item Added to My Items, To remove go to My Items page.')
+            })
+    }
+
+
+    const handleDecrease = () => {
+        const number = parseInt(product.quantity);
+        const newNumber = number - 1
+        const setNew = {
+            quantity: newNumber
+        }
+        const url = `http://localhost:5000/products/${id}`
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(setNew)
+        })
+        .then(res => res.json())
+        .then(data => {
+            // console.log('Success', data); 
+            alert('Want to deliver product?')
+            window.location.reload()
+        })
+    }
+
+    const handleIncrease = event => {
+        // event.preventDefault();
+        const quantity = {
+            quantity: event.target.quantity.value
+        };
+        const url = `http://localhost:5000/products/${id}`
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(quantity)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log('Success', data);
+                alert('Want to update product?')
+                event.target.reset()
             })
     }
 
@@ -47,11 +92,12 @@ const Inventory = () => {
             <p>Product Price: $ {product.price}</p>
             <div className='d-md-flex align-items-center'>
                 <p>Product Quantity: {product.quantity} Pieces</p>
-                <button style={{ color: '#007CC3' }}  className='ms-3 w-25 border-0 p-2'>Deliver</button>
+                <button onClick={handleDecrease} style={{ color: '#007CC3' }} className='ms-3 w-25 border-0 p-2'>Deliver</button>
+
             </div>
             <p>Description: {product.description}</p>
             <div className='my-3'>
-                <form className='d-flex justify-content-around align-items-cente'>
+                <form onSubmit={handleIncrease} className='d-flex justify-content-around align-items-cente'>
                     <input className='w-50 p-2' type="text" name="quantity" id="" placeholder='Type Quantity' />
                     <input style={{ background: '#007CC3', color: '#fff' }} className='w-50 border-0 p-2 ms-3' type="submit" value="Update Quantity" />
                 </form>

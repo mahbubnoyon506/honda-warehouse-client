@@ -7,6 +7,6 @@ const useProductId = id => {
         .then(res => res.json())
         .then(data => setProduct(data))
     }, [id])
-    return [product];
+    return [product, setProduct];
 }
 export default useProductId;
