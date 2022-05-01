@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
+import { BsFillPlayBtnFill, BsGoogle, BsGlobe, BsLinkedin, BsCart3, BsFillPersonFill } from "react-icons/bs";
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -13,15 +14,19 @@ const Header = () => {
     };
     return (
         <div>
-            <Navbar style={{ height: '30px' }} collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar style={{ height: '30px' }} sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#features">Features</Nav.Link>
+                            <Nav.Link href="#features"> <BsFillPlayBtnFill></BsFillPlayBtnFill></Nav.Link>
+                            <Nav.Link href="#features"> <BsGoogle></BsGoogle></Nav.Link>
+                            <Nav.Link href="#features"> <BsGlobe></BsGlobe></Nav.Link>
+                            <Nav.Link href="#features"><BsLinkedin></BsLinkedin></Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
+                            <Nav.Link href="#deets"><BsCart3></BsCart3></Nav.Link>
+                            <Nav.Link href="#deets"><BsFillPersonFill></BsFillPersonFill></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

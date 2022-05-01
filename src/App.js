@@ -20,7 +20,7 @@ import Products from './Components/Utilities/Products/Products';
 
 function App() {
   return (
-    <div>
+    <div className='Body-class'>
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

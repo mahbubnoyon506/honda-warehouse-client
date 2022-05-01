@@ -6,13 +6,15 @@ import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { async } from '@firebase/util';
+import Title from '../../Utilities/Title/Title';
 
 const Inventory = () => {
     const [user] = useAuthState(auth);
     const [added, setAdded] = useState(false)
     const { id } = useParams();
     const [product] = useProductId(id);
-    
+ 
     const handleAdded = () =>{
         const likedItem = {
             user: user.email,
@@ -29,8 +31,36 @@ const Inventory = () => {
             toast('Item Added to My Items, To remove go to My Items page.')
           })
     }
+
+    const handleIncrease = event => {
+        event.preventDefault();
+        const quantity = event.target.quantity.value;
+        
+        const url = `http://localhost:5000/products/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+               'content-type' : 'application/json' 
+            },
+            body: JSON.stringify(quantity)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('Success', data);
+            alert('Data update successfullt');
+            event.target.reset()
+        })
+  
+    }
+
+    const handleDecrease = () => {
+         const count = product.quantity;
+
+    }
+
     return (
         <div className='w-50 mx-auto border rounded my-5 p-3'>
+            <Title title='Inventory'></Title>
             <img className='w-100' src={product.img} alt="" />
             <div className='d-flex justify-content-between my-3'>
                 <h3>{product.name}</h3>
@@ -41,13 +71,13 @@ const Inventory = () => {
                 </Link>
             </div>
             <h5>Suppliar: {product.suppliar}</h5>
-            <p>Product Quantity: {product.price} Pieces</p>
-            <p>Product Price: $ {product.quantity}</p>
+            <p>Product Quantity: {product.quantity} Pieces</p>
+            <p>Product Price: $ {product.price}</p>
             <p>Description: {product.description}</p>
             <div className='my-3'>
-                <button className='w-100 border-0 p-2 mb-3'>Deliver</button>
-                <form className='d-flex justify-content-around align-items-cente'>
-                    <input className='w-50 p-2' type="number" name="" id="" placeholder='Type Quantity'/>
+                <button onClick={handleDecrease} className='w-100 border-0 p-2 mb-3'>Deliver</button>
+                <form onSubmit={handleIncrease} className='d-flex justify-content-around align-items-cente'>
+                    <input className='w-50 p-2' type="text" name="quantity" id="" placeholder='Type Quantity'/>
                     <input className='w-50 border-0 p-2 ms-3' type="submit" value="Update Quantity" />
                 </form>
             </div>

@@ -23,6 +23,7 @@ const ManageItems = () => {
     }
     return (
         <div className='m-5'>
+            <h4 className='text-center pb-3'>Remove item from here</h4>
             {
                 products.map(product =>
                     <div key={product._id}>
@@ -39,26 +40,8 @@ const ManageItems = () => {
                     </div>)
             }
 
-            {/* <Table  className='' striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Product Name</th>
-                        <th>Supplier</th>
-                        <th>Manage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td className='text-center'><button className='text-danger border-0'>Delete <BsTrashFill /></button></td>
-                    </tr>
-                </tbody>
-            </Table> */}
-            <div className='d-flex justify-content-center p-3'>
-                <Link to='/additems'><button className=' border-0 p-3'>Add New Item</button></Link>
+            <div className='d-flex justify-content-center py-2'>
+                <Link to='/additems'><button style={{background: '#007CC3'}} className='text-white border-0 py-2 px-5'>Add New Item</button></Link>
             </div>
 
         </div>

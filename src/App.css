@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.Body-class {
+  font-family: 'Roboto', sans-serif;
 }
 
 .App-logo {

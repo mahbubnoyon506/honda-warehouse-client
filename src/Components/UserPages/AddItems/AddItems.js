@@ -23,6 +23,7 @@ const AddItems = () => {
 
     return (
         <div className='w-50 mx-auto my-5'>
+            <h4 className='text-center'>Add new item here</h4>
            <form onSubmit={handleAddItem} className='add-product-form'>
                <input type="text" name="name" id="" placeholder='Product name'/>
                <input type="text" name="suppliar" id="" placeholder='Sppliar name'/>
@@ -30,7 +31,7 @@ const AddItems = () => {
                <input type="text" name="quantity" id="" placeholder='product Quantity'/>
                <input type="text" name="img" id="" placeholder='Product URL'/>
                <textarea type="text" name="description" id="" placeholder='Product Sescription'/>
-               <input type="submit" value="Add Item" />
+               <input className='border-0 text-white' style={{background: '#007CC3'}} type="submit" value="Add Item" />
            </form>
         </div>
     );
