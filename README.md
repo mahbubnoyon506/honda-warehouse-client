@@ -1,6 +1,10 @@
 ## Getting Started with Honda Auto Parts Warehouse
 
-Project is live on [Honda WareHouse]().
+Project is live on [Honda WareHouse](https://warehouse-management-630a3.firebaseapp.com/).
+
+Github Client Link on [Client Site](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-mahbubnoyon506).
+
+Github Server Link on [Server Site](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-mahbubnoyon506).
 
 ## This project is about a warehouse management.
 
@@ -14,17 +18,17 @@ Project is live on [Honda WareHouse]().
 
 ### Dependancies that used are
 
-*react
-*firebase
-*axios
-*react-bootstrap
-*react-dom
-*react-firebase-hooks
-*react-helmet-async
-*react-icons
-*react-router-dom
-*react-scripts
-*react-toastify etc.
+* react
+* firebase
+* axios
+* react-bootstrap
+* react-dom
+* react-firebase-hooks
+* react-helmet-async
+* react-icons
+* react-router-dom
+* react-scripts
+* react-toastify etc.
 
 ### And the backend is managed with the help of **Nodejs** and **MongoDb**.
 

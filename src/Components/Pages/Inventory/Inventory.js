@@ -47,12 +47,12 @@ const Inventory = () => {
             },
             body: JSON.stringify(setNew)
         })
-        .then(res => res.json())
-        .then(data => {
-            // console.log('Success', data); 
-            alert('Want to deliver product?')
-            window.location.reload()
-        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log('Success', data); 
+                alert('Want to deliver product?')
+                window.location.reload()
+            })
     }
 
     const handleIncrease = event => {
