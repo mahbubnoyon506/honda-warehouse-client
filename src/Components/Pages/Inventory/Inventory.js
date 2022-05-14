@@ -102,7 +102,7 @@ const Inventory = () => {
                     <input style={{ background: '#007CC3', color: '#fff' }} className='w-50 border-0 p-2 ms-3' type="submit" value="Update Quantity" />
                 </form>
             </div>
-            <Link to='/manageitems'><button style={{ background: '#007CC3', color: '#fff' }} className='w-100 border-0 p-2 mb-3'>Manage Inventory Item</button> </Link>
+            <Link to='/manageitems'><button style={{ background: '#007CC3', color: '#fff' }} className='w-100 border-0 p-2 mb-3'>Manage Inventory</button> </Link>
         </div>
     );
 };

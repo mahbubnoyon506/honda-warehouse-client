@@ -87,7 +87,7 @@ const Home = () => {
                         <h4 className='py-3'>Popular Product</h4>
                         <Products></Products>
                         <div className='d-flex justify-content-center'>
-                            <Link  to='/manageitems'><Button style={{background: '#007CC3'}}>Manage Items</Button></Link>
+                            <Link  to='/manageitems'><Button style={{background: '#007CC3'}}>Manage Inventories</Button></Link>
                         </div>
                     </div>
                 </div>
