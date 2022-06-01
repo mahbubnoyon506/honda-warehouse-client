@@ -3,7 +3,7 @@ const useMyItems = () => {
     const [items, setItems] = useState([]);
 
     useEffect( () => {
-        const url = `http://localhost:5000/items`;
+        const url = `https://fierce-shelf-94421.herokuapp.com/items`;
         fetch(url, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -15,7 +15,7 @@ const AddItems = () => {
         suppliar: event.target.suppliar.value,
         description: event.target.description.value 
        }
-       axios.post('http://localhost:5000/products', item )
+       axios.post('https://fierce-shelf-94421.herokuapp.com/products', item )
        .then(function (response) {
        })
        toast('Item Added')

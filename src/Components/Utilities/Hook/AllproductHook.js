@@ -4,7 +4,7 @@ const useProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/products`;
+        const url = `https://fierce-shelf-94421.herokuapp.com/products`;
         fetch(url)
         .then(res => res.json())
         .then(data => setProducts(data))

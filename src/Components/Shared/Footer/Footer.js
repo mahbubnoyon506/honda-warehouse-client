@@ -10,7 +10,7 @@ const Footer = () => {
     const handleEmailSubmit = event => {
         event.preventDefault();
         const email = { email: event.target.email.value };
-        const url = `http://localhost:5000/newsletters`;
+        const url = `https://fierce-shelf-94421.herokuapp.com/newsletters`;
         axios.post(url, email)
             .then(function (response) {
                 console.log(response);

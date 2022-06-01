@@ -7,7 +7,7 @@ import useProducts from '../../Utilities/Hook/AllproductHook';
 const ManageItems = () => {
     const [products, setProducts] = useProducts();
     const handleDelete = id => {
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://fierce-shelf-94421.herokuapp.com/products/${id}`
         const agree = window.confirm('Are you sure to remove it?')
         if (agree) {
             fetch(url, {
