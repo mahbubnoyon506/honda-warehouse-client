@@ -1,11 +1,15 @@
 
 import { Link} from 'react-router-dom';
 import useProducts from '../Hook/AllproductHook';
+import Spiner from '../Spiner/Spiner';
 import './Products.css'
 
 const Products = () => {
-    const [products] = useProducts();
+    const [products, isloading] = useProducts();
     
+    if(isloading){
+      return <Spiner></Spiner>
+    }
     return (
         <div className='row my-3'>
             {

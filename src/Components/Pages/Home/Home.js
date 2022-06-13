@@ -1,15 +1,14 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Banner from '../../Utilities/Banner/Banner';
 import Products from '../../Utilities/Products/Products';
 import Title from '../../Utilities/Title/Title';
 
-
-
 import './Home.css'
 
 const Home = () => {
+
     return (
         <div>
             <Title title='Home'></Title>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 const useMyItems = () => {
     const [items, setItems] = useState([]);
+    const [isloading, setIsloading] = useState(true)
 
     useEffect( () => {
         const url = `https://fierce-shelf-94421.herokuapp.com/items`;
@@ -10,8 +11,11 @@ const useMyItems = () => {
             }
         })
         .then(res => res.json())
-        .then(data => setItems(data))
+        .then(data => {
+            setItems(data)
+            setIsloading(false)
+        })
     }, [])
-    return [items, setItems]
+    return [items, isloading]
 }
 export default useMyItems;
