@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -16,13 +17,19 @@ const Products = () => {
 
     useEffect(() => {
         const url = `https://fierce-shelf-94421.herokuapp.com/products?limit=${limit}&pageNumber=${page}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data.data)
-                setPageCount(Math.ceil(data.count/limit))
-                setIsloading(false)
-            })
+       (async () => {
+           const {data} = await axios.get(url)
+           setProducts(data.data)
+           setPageCount(Math.ceil(data.count/limit))
+           setIsloading(false)
+       })()
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setProducts(data.data)
+        //         setPageCount(Math.ceil(data.count/limit))
+        //         setIsloading(false)
+        //     })
     }, [limit, page])
 
 
