@@ -4,7 +4,7 @@ const useMyItems = () => {
     const [isloading, setIsloading] = useState(true)
 
     useEffect( () => {
-        const url = `https://fierce-shelf-94421.herokuapp.com/items`;
+        const url = `https://honda-warehouse-server.onrender.com/items`;
         fetch(url, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -8,7 +8,7 @@ const MyItems = () => {
     const [items, setItems] = useMyItems();
 
     const handleRemove = id => {
-        const url = `https://fierce-shelf-94421.herokuapp.com/items/${id}`;
+        const url = `https://honda-warehouse-server.onrender.com/items/${id}`;
         const agree = window.confirm('Are you sure to remove it?');
         if(agree){
             fetch(url, {

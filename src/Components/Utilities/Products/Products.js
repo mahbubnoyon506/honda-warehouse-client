@@ -16,7 +16,7 @@ const Products = () => {
     const [pageCount, setPageCount]= useState(0)
 
     useEffect(() => {
-        const url = `https://fierce-shelf-94421.herokuapp.com/products?limit=${limit}&pageNumber=${page}`;
+        const url = `https://honda-warehouse-server.onrender.com/products?limit=${limit}&pageNumber=${page}`;
        (async () => {
            const {data} = await axios.get(url)
            setProducts(data.data)

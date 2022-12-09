@@ -5,7 +5,7 @@ const useProducts = () => {
     const [isloading, setIsloading] = useState(true)
 
     useEffect(() => {
-        const url = `https://fierce-shelf-94421.herokuapp.com/products`;
+        const url = `https://honda-warehouse-server.onrender.com/products`;
         fetch(url)
         .then(res => res.json())
         .then(data => {

@@ -25,7 +25,7 @@ const Inventory = () => {
             quantity: product.quantity,
             description: product.description
         }
-        axios.post('https://fierce-shelf-94421.herokuapp.com/items', likedItem)
+        axios.post('/products/items', likedItem)
             .then(function (response) {
                 setAdded(response);
                 toast('Item Added to My Items, To remove go to My Items page.')
@@ -39,7 +39,7 @@ const Inventory = () => {
         const setNew = {
             quantity: newNumber
         }
-        const url = `https://fierce-shelf-94421.herokuapp.com/products/${id}`
+        const url = `https://honda-warehouse-server.onrender.com/products/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -60,7 +60,7 @@ const Inventory = () => {
         const quantity = {
             quantity: event.target.quantity.value
         };
-        const url = `https://fierce-shelf-94421.herokuapp.com/products/${id}`
+        const url = `https://honda-warehouse-server.onrender.com/products/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {

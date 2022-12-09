@@ -29,7 +29,7 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         await signInWithEmailAndPassword(email, password);
-        const {data} = await axios.post('https://fierce-shelf-94421.herokuapp.com/login', {email});
+        const {data} = await axios.post('https://honda-warehouse-server.onrender.com/login', {email});
         localStorage.setItem('accessToken', data.accessToken);
         navigate(from, { replace: true });
     }
